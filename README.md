@@ -21,8 +21,6 @@ The player-facing experience focuses on atmosphere, exploration, environmental s
 
 ## Scope
 
-### In Scope
-
 - Online Unity WebGL build
 - 2D horror chapter
 - Login / account session
@@ -32,12 +30,6 @@ The player-facing experience focuses on atmosphere, exploration, environmental s
 - Backend-backed save/load system
 - Basic testing, documentation, and deployment discipline
 - Poster and video evidence for Milestone 1
-
-### Out of Scope
-
-- Multiple full chapters before the vertical slice is playable
-- Overly complex enemy AI before the proof-of-concept works
-- Features that delay the Milestone 1 technical proof-of-concept
 
 ## Tech Stack
 
@@ -228,16 +220,6 @@ Open game
 - Ensure repository is public or shareable
 - Create Git tag `v0.1-m1`
 
-## Challenges Faced
-
-Current challenges include:
-
-- Short timeline before Milestone 1 deadline
-- Need to build both product and evidence in parallel
-- Need to keep the technical proof-of-concept small enough to finish quickly
-- Need to avoid scope creep before the first working demo
-- Need to coordinate Unity, backend, documentation, poster, and video work together
-
 ## Next Milestone Plan
 
 After Milestone 1, the project will focus on:
@@ -252,8 +234,6 @@ After Milestone 1, the project will focus on:
 - Better poster and video polish
 
 ## Git Tagging
-
-At the end of Milestone 1, the repository will be tagged with:
 
 ```bash
 git tag -a v0.1-m1 -m "Milestone 1 technical proof of concept"
