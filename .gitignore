@@ -1,0 +1,35 @@
+# Unity generated files
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# Unity crash reports
+sysinfo.txt
+
+# IDE files
+.vs/
+.idea/
+.vscode/
+*.csproj
+*.sln
+*.user
+*.pidb
+*.booproj
+*.svd
+
+# macOS / Windows
+.DS_Store
+Thumbs.db
+
+# Node/backend later
+node_modules/
+.env
+.env.local
+
+# Build artifacts
+dist/
+coverage/
