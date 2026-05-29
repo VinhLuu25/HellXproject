@@ -66,3 +66,27 @@ This log records our progress, decisions, blockers, and evidence for Hell X.
 - Add `/health` endpoint
 - Add `/poc/save` mock endpoint
 - Connect Unity to backend in Day 4
+
+## Day 3: Backend Skeleton
+
+### Completed
+
+- Created TypeScript backend project under `server/`
+- Added Fastify server
+- Added `GET /health` endpoint
+- Added CORS configuration
+- Added `.env.example`
+- Initialized Prisma schema v0
+- Added backend setup documentation
+
+### Evidence
+
+- Backend can run locally with `npm run dev`
+- Health endpoint returns status `ok`
+- Prisma schema includes initial `Player` and `SaveSlot` models
+
+### Next
+
+- Draft save/load API contract
+- Add mock save and load endpoints
+- Prepare Unity-to-backend integration spike

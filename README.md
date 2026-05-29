@@ -240,6 +240,17 @@ git tag -a v0.1-m1 -m "Milestone 1 technical proof of concept"
 git push origin v0.1-m1
 ```
 
+## Backend Setup
+
+The backend is located in `server/`.
+
+```bash
+cd server
+npm install
+cp .env.example .env
+npm run dev
+```
+
 ## Current Status
 
 Milestone 1 foundation and Unity proof-of-concept skeleton are in progress.
