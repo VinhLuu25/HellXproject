@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Player {
+  id        String   @id @default(uuid())
+  username  String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  saveSlots SaveSlot[]
+}
+
+model SaveSlot {
+  id        String   @id @default(uuid())
+  playerId  String
+  slotIndex Int      @default(0)
+
+  checkpoint String  @default("start")
+  sceneName  String  @default("MainScene")
+
+  positionX Float    @default(0)
+  positionY Float    @default(0)
+
+  inventory Json     @default("[]")
+  puzzleFlags Json   @default("{}")
+  journal Json       @default("[]")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  player Player @relation(fields: [playerId], references: [id])
+
+  @@unique([playerId, slotIndex])
+}
