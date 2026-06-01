@@ -254,3 +254,24 @@ npm run dev
 ## Current Status
 
 Milestone 1 foundation and Unity proof-of-concept skeleton are in progress.
+## Evidence
+
+![Player can move](docs/evidence/player-can-move.png)
+
+![Go up](docs/evidence/go-up.png)
+
+![Go down](docs/evidence/go-down.png)
+
+![Go left](docs/evidence/go-left.png)
+
+![Go right](docs/evidence/go-right.png)
+
+![Interact](docs/evidence/interact.png)
+
+![Door](docs/evidence/door.png)
+
+![First room](docs/evidence/first-room.png)
+
+![Back idle while opening inventory](docs/evidence/Back-Idle%20while%20Opening%20Inventory.png)
+
+![Front idle while opening inventory](docs/evidence/Front-Idle%20while%20Opening%20Inventory.png)
