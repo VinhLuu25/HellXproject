@@ -61,6 +61,7 @@ Deliverables:
 - List the checks that should run locally.
 - Draft the future CI shape without adding unstable workflows prematurely.
 - Update docs with confirmed commands and known gaps.
+- Add setup notes and a manual test checklist.
 
 ## Day 7: Weekly Review
 

@@ -37,6 +37,19 @@ A task is done when:
 - Follow-up work is written down.
 - The branch has no unrelated changes.
 
+## Local Checks
+
+Run the available checks for the area touched by the change. Server changes should run:
+
+```bash
+cd server
+npm install
+npm run build
+npm test
+```
+
+Client changes should be opened or validated in Unity when the editor is available and the project is not already open elsewhere.
+
 ## Weekly Review
 
 At the end of each week:

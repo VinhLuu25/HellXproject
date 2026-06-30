@@ -76,4 +76,8 @@ Backend ready: first-room / intro
 
 If the backend is not running, the status text should show an unavailable or failed request state.
 
-Production login, cloud save, database persistence, dashboard work, and online deployment are not part of Day 5.
+Production login, cloud save, database persistence, dashboard work, and online deployment are not part of Week 1 foundation.
+
+## Manual Check
+
+Use [manual test checklist](../docs/manual-test-checklist.md) for the current Week 1 verification flow.

@@ -39,6 +39,10 @@ npm test
 npm run prisma:validate
 ```
 
+## CI Draft
+
+The server CI draft installs dependencies, builds TypeScript, and runs tests. It does not start PostgreSQL or run migrations.
+
 ## Health Endpoint
 
 ```txt
@@ -60,3 +64,7 @@ Expected response shape:
 Day 3 covers only the backend skeleton: Fastify app startup, the health route, Prisma schema setup, local environment example, and a minimal health route test.
 
 Production login, cloud save endpoints, database migrations, client integration, dashboard work, deployment config, and CI are not part of Day 3.
+
+## Week 1 State
+
+The server now includes mock session and save endpoints for contract testing. These endpoints do not write to PostgreSQL.

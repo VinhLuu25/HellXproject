@@ -65,12 +65,30 @@ HellXproject/
 
 Week 1 should turn the repository into a clear project foundation before adding new product work. The week starts with scope, process, architecture, and demo planning, then moves through the Unity skeleton, backend skeleton, save model/API contract, client-to-backend spike, integration cleanup, and weekly review.
 
+## Local Setup
+
+Read [setup notes](docs/setup.md) before running the project locally.
+
+Server checks:
+
+```bash
+cd server
+npm install
+npm run build
+npm test
+```
+
+Client setup starts in `client/README.md`. Unity `6000.3.11f1` or a compatible editor is expected for opening the client project.
+
 ## Current Status
 
-- Branch: `week-1/foundation`.
-- Day 1 foundation files are being aligned with the Week 1 roadmap.
-- Existing Unity proof-of-concept work and backend skeleton work remain in place.
-- No gameplay, backend, dashboard, or Unity scene changes are part of Day 1.
+- Day 1 foundation docs are in place.
+- Day 2 client skeleton is in place.
+- Day 3 server skeleton is in place.
+- Day 4 save/API contract and mock endpoints are in place.
+- Day 5 client-to-backend mock connection scripts are in place.
+- Day 6 setup docs, manual checks, and server CI draft are in place.
+- Production login, production persistence, dashboard work, deployment, and WebGL build output are not part of Week 1 foundation.
 
 ## Supporting Docs
 
@@ -78,6 +96,8 @@ Week 1 should turn the repository into a clear project foundation before adding 
 - [Week 1 plan](docs/week-1-plan.md)
 - [Architecture V0](docs/architecture-v0.md)
 - [Project process](docs/process.md)
+- [Setup notes](docs/setup.md)
+- [Manual test checklist](docs/manual-test-checklist.md)
 - [Demo script draft](docs/demo-script-draft.md)
 - [Testing plan](docs/testing-plan.md)
 - [Project log](docs/project-log.md)

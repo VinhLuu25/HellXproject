@@ -26,17 +26,38 @@ Backend API
 
 The Unity client owns the player-facing horror experience: movement, interaction, room flow, local UI feedback, puzzle beats, inventory state, journal state, and save/load requests. It should stay focused on gameplay presentation and client-side responsiveness.
 
+Current Week 1 state:
+
+- Client skeleton exists under `client/`.
+- Player, interaction, local save, status UI, and backend client scripts exist.
+- Unity scene wiring and WebGL build verification still need manual editor work.
+
 ## Backend API
 
 The backend API owns server-side validation and access to persistent player state. Early API work should focus on health, session direction, save/load direction, and contracts that the Unity client can call consistently.
+
+Current Week 1 state:
+
+- Fastify app exists under `server/`.
+- `/health`, `/session/test`, and `/save/current` mock routes exist.
+- Server build and tests can run locally with npm.
 
 ## PostgreSQL
 
 PostgreSQL is the long-term store for player records, sessions, save data, puzzle state, inventory state, journal progress, deaths, settings, and unlocks. Prisma should manage schema and migration work when persistence implementation begins.
 
+Current Week 1 state:
+
+- Prisma schema reflects the save/session contract.
+- No migrations or real database writes have been run for Week 1.
+
 ## QA/Ops Dashboard
 
 The dashboard is planned as a React surface for inspecting players, sessions, saves, and test data. It should use backend APIs rather than direct database access.
+
+Current Week 1 state:
+
+- Dashboard implementation has not started.
 
 ## First End-To-End Target
 
@@ -47,6 +68,13 @@ The first end-to-end target is intentionally narrow:
 3. Client sends a health or save-style request to the backend.
 4. Backend returns a clear success or failure response.
 5. Client shows visible sync status.
+
+Current mock target:
+
+1. Run the backend locally.
+2. Trigger the Unity-side backend check.
+3. Call `/health`, `/session/test`, and `/save/current`.
+4. Show either `Backend ready: first-room / intro` or a clear failure status.
 
 ## Architecture Principles
 
