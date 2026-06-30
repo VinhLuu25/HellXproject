@@ -127,3 +127,13 @@ Success response:
 ## Day 4 Boundary
 
 These endpoints are mock contract endpoints. They do not provide production account security, production cloud save, or database writes.
+
+## Day 5 Client Spike
+
+The Unity client can call the mock flow in this order:
+
+1. `GET /health`
+2. `POST /session/test`
+3. `GET /save/current`
+
+The client should show a visible success status when all three requests complete and a visible failure status when any request fails.

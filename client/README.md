@@ -11,6 +11,7 @@ Assets/
     FirstRoom.unity
     PocScene.unity
   Scripts/
+    Network/
     Player/
     Interaction/
     Save/
@@ -23,7 +24,9 @@ Assets/
 - `Interaction/InteractionController.cs` detects nearby objects and records a local checkpoint.
 - `Interaction/InteractableObject.cs` provides the first inspectable object behavior.
 - `Save/LocalSaveStore.cs` stores a local checkpoint through PlayerPrefs.
+- `Network/BackendClient.cs` calls local backend mock endpoints.
 - `UI/StatusDisplay.cs` updates a TextMeshPro status label.
+- `UI/BackendStatusController.cs` runs the local backend mock flow and displays success or failure.
 - `UI/MainMenuController.cs` loads the first room from the menu.
 
 ## Scene Setup
@@ -43,6 +46,34 @@ Assets/
 6. Add a player object with `Rigidbody2D`, collider, `PlayerMovement`, and `InteractionController`.
 7. Add an interactable object with a trigger collider and `InteractableObject`.
 8. Add a TextMeshPro status label and connect it to `StatusDisplay`.
-9. Save scenes before creating a WebGL build.
+9. Add a scene object with `BackendClient` and `BackendStatusController`.
+10. Connect a UI button or test object to `BackendStatusController.CheckBackend`.
+11. Save scenes before creating a WebGL build.
 
-No backend, login, cloud save, database, dashboard, or online integration is part of Day 2.
+## Local Backend Mock Flow
+
+Run the backend in a separate terminal:
+
+```bash
+cd server
+npm install
+npm run dev
+```
+
+In Unity:
+
+1. Open `Assets/Scenes/FirstRoom.unity`.
+2. Add `BackendClient` to a scene object and keep the default base URL `http://localhost:3000`.
+3. Add `BackendStatusController` to a scene object.
+4. Connect the status label, local save store, and backend client references.
+5. Trigger `CheckBackend` from a UI button or temporary test object.
+
+Expected success status:
+
+```txt
+Backend ready: first-room / intro
+```
+
+If the backend is not running, the status text should show an unavailable or failed request state.
+
+Production login, cloud save, database persistence, dashboard work, and online deployment are not part of Day 5.

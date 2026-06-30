@@ -16,6 +16,10 @@ Show that Hell X is becoming a playable online horror slice with a clear path fr
 8. Show the client success or failure state.
 9. Close with the current status and the next planned step toward save/resume.
 
+## Local Mock API Beat
+
+For the Week 1 technical demo, run the backend locally and trigger the Unity-side backend check from the first room. The evaluator should see either `Backend ready: first-room / intro` or a clear failure state if the backend is stopped.
+
 ## What Evaluator Should Notice
 
 - The project has a clear horror-game vision and limited first slice.

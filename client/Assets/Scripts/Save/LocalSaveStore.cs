@@ -4,6 +4,7 @@ using UnityEngine;
 public class LocalSaveStore : MonoBehaviour
 {
     private const string SaveKey = "hellx.localSave";
+    private const string BackendSnapshotKey = "hellx.backendSnapshot";
 
     public void SaveCheckpoint(string roomId, Vector2 playerPosition)
     {
@@ -29,6 +30,18 @@ public class LocalSaveStore : MonoBehaviour
 
         data = JsonUtility.FromJson<LocalSaveData>(PlayerPrefs.GetString(SaveKey));
         return data != null;
+    }
+
+    public void SaveBackendSnapshot(string rawJson)
+    {
+        PlayerPrefs.SetString(BackendSnapshotKey, rawJson);
+        PlayerPrefs.Save();
+    }
+
+    public bool TryLoadBackendSnapshot(out string rawJson)
+    {
+        rawJson = PlayerPrefs.GetString(BackendSnapshotKey, string.Empty);
+        return !string.IsNullOrEmpty(rawJson);
     }
 }
 
