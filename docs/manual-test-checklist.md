@@ -17,6 +17,15 @@
 - Approach the clue, puzzle, or checkpoint placeholder and press `E`.
 - Confirm the status text changes when an interaction is detected.
 
+## Week 2 Clue Pickup Check
+
+- Open `Assets/Scenes/Chapter01_Room01.unity`.
+- Move the player near `ClueObject`.
+- Press `E`.
+- Confirm the clue status says the torn chapel note was found.
+- Confirm the clue sprite is hidden after pickup.
+- Confirm the room has `InventoryState` and `JournalState` on `RoomRoot`.
+
 ## Backend Health Check
 
 ```bash

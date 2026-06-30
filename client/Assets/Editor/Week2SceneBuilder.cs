@@ -59,6 +59,8 @@ namespace HellX.EditorTools
 
             GameObject root = EnsureObject("RoomRoot");
             EnsureComponent<RoomStateCoordinator>(root);
+            EnsureComponent<InventoryState>(root);
+            EnsureComponent<JournalState>(root);
             EnsureSprite("FloorPlaceholder", root.transform, new Vector3(0f, 0f, 0f), new Vector2(12f, 7f), new Color(0.11f, 0.11f, 0.12f), false);
             EnsureBoundary("BoundaryTop", root.transform, new Vector3(0f, 3.6f, 0f), new Vector2(12f, 0.2f));
             EnsureBoundary("BoundaryBottom", root.transform, new Vector3(0f, -3.6f, 0f), new Vector2(12f, 0.2f));
@@ -84,8 +86,12 @@ namespace HellX.EditorTools
             interactionBody.bodyType = RigidbodyType2D.Kinematic;
 
             GameObject clue = EnsureSprite("ClueObject", root.transform, new Vector3(-1.5f, 0.8f, 0f), new Vector2(0.45f, 0.45f), new Color(0.95f, 0.82f, 0.25f), true);
-            InteractableObject clueInteraction = EnsureComponent<InteractableObject>(clue);
-            SetPrivateString(clueInteraction, "interactionMessage", "Clue found: a torn chapel note.");
+            EnsureComponent<CluePickup>(clue);
+            InteractableObject oldClueInteraction = clue.GetComponent<InteractableObject>();
+            if (oldClueInteraction != null)
+            {
+                Object.DestroyImmediate(oldClueInteraction);
+            }
             BoxCollider2D clueCollider = EnsureComponent<BoxCollider2D>(clue);
             clueCollider.isTrigger = true;
 
