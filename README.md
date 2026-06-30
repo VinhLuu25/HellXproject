@@ -1,18 +1,16 @@
-# HellXproject
+# Hell X
 
-Hell X is an online 2D horror vertical slice where players log in, explore a short atmospheric chapter, solve puzzles, survive tension events, and resume progress through cloud save.
+Hell X is an online 2D horror vertical slice. The project combines a Unity 2D WebGL game client with a backend API, persistent player data, cloud save, project documentation, and milestone evidence.
 
-## Project Details
+## Project Vision
 
-Hell X aims to be a real horror game first and a credible software engineering project second.
-
-The player-facing experience focuses on atmosphere, exploration, environmental storytelling, puzzle solving, and tension pacing. The technical system demonstrates authentication, persistent cloud saves, backend-backed game state, testing, deployment, and software engineering discipline.
+Hell X should feel like a real horror game first: tense, readable, and focused on atmosphere. The engineering goal is to prove that a small playable slice can support account/session flow, save/resume behavior, backend-backed state, and a clear review process.
 
 ## Core Player Loop
 
-1. Open the hosted WebGL game.
+1. Open the hosted WebGL build.
 2. Register or log in.
-3. Resume from saved checkpoint.
+3. Resume from a saved checkpoint.
 4. Explore rooms and collect clues.
 5. Solve puzzle sequences.
 6. Survive danger or tension events.
@@ -21,26 +19,36 @@ The player-facing experience focuses on atmosphere, exploration, environmental s
 
 ## Scope
 
-- Online Unity WebGL build
-- 2D horror chapter
-- Login / account session
-- Cloud save and resume
-- Persistent player data
-- Puzzle state, inventory, journal, settings, deaths, and unlocks
-- Backend-backed save/load system
-- Basic testing, documentation, and deployment discipline
-- Poster and video evidence for Milestone 1
+- Unity 2D WebGL client.
+- Short 2D horror chapter.
+- Login and account session flow.
+- Cloud save and resume flow.
+- Persistent player data.
+- Puzzle state, inventory, journal, settings, deaths, and unlocks.
+- Backend-backed save/load system.
+- PostgreSQL data storage managed through Prisma.
+- React QA/Ops dashboard planning.
+- Tests, documentation, diagrams, project log, and milestone evidence.
+
+## Out Of Scope
+
+- Blockchain features.
+- NFT features.
+- Wallet login.
+- Smart contracts.
+- Marketplace systems.
+- Tokenomics.
 
 ## Tech Stack
 
-| Layer       | Technology                   |
-| ----------- | ---------------------------- |
-| Game Client | Unity 2D, C#, WebGL          |
+| Layer | Technology |
+| --- | --- |
+| Game client | Unity 2D, C#, WebGL |
 | Backend API | Node.js, TypeScript, Fastify |
-| Database    | PostgreSQL                   |
-| ORM         | Prisma                       |
-| Dashboard   | React                        |
-| CI/CD       | GitHub Actions               |
+| Database | PostgreSQL |
+| ORM | Prisma |
+| Dashboard | React |
+| CI/CD | GitHub Actions |
 
 ## Repository Structure
 
@@ -48,230 +56,28 @@ The player-facing experience focuses on atmosphere, exploration, environmental s
 HellXproject/
   client/      # Unity game client
   server/      # Backend API
-  dashboard/   # QA/Ops dashboard
   docs/        # Planning, diagrams, testing notes, and evidence
+  .github/     # Issue and pull request templates
+  dashboard/   # Planned QA/Ops dashboard
 ```
 
-## Milestone 1 Objectives
+## Week 1 Goal
 
-Milestone 1 focuses on proving that Hell X is feasible as both a playable game and a software engineering system.
-
-By the end of Milestone 1, the project should have:
-
-- A public or shareable GitHub repository
-- A README that transfers the proposal into the repository
-- A regularly updated project log
-- A technical proof-of-concept that runs locally
-- A poster update with proof-of-concept screenshot
-- A short video demo with product footage
-- GitHub Issues, Milestones, and Labels for tracking work
-- Initial architecture, use case, and sequence diagram drafts
-- A testing plan covering unit, integration, and system testing
-
-## Current Milestone Progress
-
-### Completed
-
-- GitHub repository created
-- Repository cloned locally
-- README structure updated for Milestone 1
-- Project scope and proof-of-concept target defined
-- Initial software engineering evidence plan drafted
-- Unity proof-of-concept skeleton started
-- Player movement placeholder implemented
-- Interactable object placeholder implemented
-- UI status text placeholder implemented
-
-### In Progress
-
-- Unity proof-of-concept skeleton
-- Player movement placeholder
-- Interactable object placeholder
-- UI status text placeholder
-- Project log updates
-- GitHub Issues, Labels, and Milestones
-
-### Next Immediate Tasks
-
-- Set up backend API proof-of-concept skeleton
-- Add `/health` and `/poc/save` endpoints
-- Connect Unity client to backend endpoint
-- Capture final proof-of-concept screenshot and video footage
-- Update poster with proof-of-concept evidence
-
-## Technical Proof of Concept
-
-The minimum technical proof-of-concept for Milestone 1 is:
-
-```txt
-Open Unity scene
-- Player moves
-- Player interacts with an object
-- Unity calls backend /health or /poc/save
-- Backend returns success
-- Unity UI shows "Synced"
-```
-
-This proof-of-concept demonstrates that the game client and backend can communicate successfully.
-
-## Software Engineering Evidence
-
-The project will show software engineering evidence through:
-
-- GitHub Issues for task tracking
-- GitHub Milestones for grouping work by project phase
-- GitHub Labels for categorizing issues and pull requests
-- Pull requests for reviewable changes
-- Project log updates
-- Architecture diagram
-- Use case diagram
-- Proof-of-concept sequence diagram
-- Testing plan
-- Git tag for Milestone 1 snapshot
-
-## Testing Plan Summary
-
-### Unit Testing
-
-Planned unit tests include:
-
-- Backend request validation
-- Backend save/load logic
-- Backend auth/session logic
-- Pure gameplay logic where applicable
-
-### Integration Testing
-
-Planned integration tests include:
-
-- Backend API with PostgreSQL
-- Unity client calling backend `/health`
-- Unity client calling backend `/poc/save`
-- Save/load data flow between client and backend
-
-### System Testing
-
-Planned system test flow:
-
-```txt
-Open game
-- login or mock login
-- enter chapter
-- interact with object
-- save/sync progress
-- reload
-- resume from saved state
-```
-
-## Phase 1 Plan
-
-### README + GitHub Process Foundation
-
-- Update README with Milestone 1 sections
-- Create GitHub Milestone 1
-- Create labels and issues
-- Create project log
-- Create diagram placeholders
-- Create evidence checklist
-
-### Unity PoC Skeleton
-
-- Create Unity project
-- Create first scene
-- Add basic player movement
-- Add interactable object placeholder
-- Add simple UI status text
-
-### Backend/API PoC Skeleton
-
-- Initialize TypeScript backend
-- Add Fastify server
-- Add `/health` endpoint
-- Add `/poc/save` mock endpoint
-- Prepare `.env.example`
-
-### Unity to Backend Integration Spike
-
-- Unity sends request to backend
-- Backend returns success
-- Unity displays `"Synced"`
-- Add basic error handling
-
-### Screenshot, Video, and Poster Evidence
-
-- Capture proof-of-concept screenshot
-- Record short demo footage
-- Update poster with screenshot
-- Draft video script
-
-### Testing Plan + Diagrams + Project Log Cleanup
-
-- Update testing plan
-- Update architecture diagram
-- Update use case diagram
-- Update sequence diagram
-- Clean project log
-
-### Milestone 1 Packaging
-
-- Final README cleanup
-- Final poster update
-- Final video demo
-- Ensure repository is public or shareable
-- Create Git tag `v0.1-m1`
-
-## Next Milestone Plan
-
-After Milestone 1, the project will focus on:
-
-- Core gameplay loop
-- Real save/load system with persistent database storage
-- Puzzle state and inventory
-- Journal and lore progression
-- Improved horror atmosphere
-- More complete testing
-- Cleaner architecture and documentation
-- Better poster and video polish
-
-## Git Tagging
-
-```bash
-git tag -a v0.1-m1 -m "Milestone 1 technical proof of concept"
-git push origin v0.1-m1
-```
-
-## Backend Setup
-
-The backend is located in `server/`.
-
-```bash
-cd server
-npm install
-cp .env.example .env
-npm run dev
-```
+Week 1 should turn the repository into a clear project foundation before adding new product work. The week starts with scope, process, architecture, and demo planning, then moves through the Unity skeleton, backend skeleton, save model/API contract, client-to-backend spike, integration cleanup, and weekly review.
 
 ## Current Status
 
-Milestone 1 foundation and Unity proof-of-concept skeleton are in progress.
-## Evidence
+- Branch: `week-1/foundation`.
+- Day 1 foundation files are being aligned with the Week 1 roadmap.
+- Existing Unity proof-of-concept work and backend skeleton work remain in place.
+- No gameplay, backend, dashboard, or Unity scene changes are part of Day 1.
 
-![Player can move](docs/evidence/player-can-move.png)
+## Supporting Docs
 
-![Go up](docs/evidence/go-up.png)
-
-![Go down](docs/evidence/go-down.png)
-
-![Go left](docs/evidence/go-left.png)
-
-![Go right](docs/evidence/go-right.png)
-
-![Interact](docs/evidence/interact.png)
-
-![Door](docs/evidence/door.png)
-
-![First room](docs/evidence/first-room.png)
-
-![Back idle while opening inventory](docs/evidence/Back-Idle%20while%20Opening%20Inventory.png)
-
-![Front idle while opening inventory](docs/evidence/Front-Idle%20while%20Opening%20Inventory.png)
+- [Project scope](docs/project-scope.md)
+- [Week 1 plan](docs/week-1-plan.md)
+- [Architecture V0](docs/architecture-v0.md)
+- [Project process](docs/process.md)
+- [Demo script draft](docs/demo-script-draft.md)
+- [Testing plan](docs/testing-plan.md)
+- [Project log](docs/project-log.md)
