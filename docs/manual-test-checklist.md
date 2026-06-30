@@ -4,8 +4,18 @@
 
 - Open `client/` in Unity when the editor is available.
 - Confirm `Assets/Scenes/MainMenu.unity`, `Assets/Scenes/FirstRoom.unity`, and `Assets/Scenes/PocScene.unity` exist.
+- Confirm `Assets/Scenes/Chapter01_Room01.unity` exists after the Week 2 scene pass.
 - Confirm scripts exist under `Assets/Scripts/Player`, `Assets/Scripts/Interaction`, `Assets/Scripts/Save`, `Assets/Scripts/UI`, and `Assets/Scripts/Network`.
 - Confirm scene wiring manually before claiming playable client behavior.
+
+## Week 2 Room Loop Check
+
+- Open `Assets/Scenes/MainMenu.unity`.
+- Confirm the title, start test session placeholder, status placeholder, and start button are visible.
+- Press play and use the start button to load `Assets/Scenes/Chapter01_Room01.unity`.
+- Move the player placeholder with WASD or arrow keys.
+- Approach the clue, puzzle, or checkpoint placeholder and press `E`.
+- Confirm the status text changes when an interaction is detected.
 
 ## Backend Health Check
 

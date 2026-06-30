@@ -8,9 +8,11 @@ The client is a Unity 2D WebGL project for the Hell X vertical slice.
 Assets/
   Scenes/
     MainMenu.unity
+    Chapter01_Room01.unity
     FirstRoom.unity
     PocScene.unity
   Scripts/
+    Game/
     Network/
     Player/
     Interaction/
@@ -28,13 +30,15 @@ Assets/
 - `UI/StatusDisplay.cs` updates a TextMeshPro status label.
 - `UI/BackendStatusController.cs` runs the local backend mock flow and displays success or failure.
 - `UI/MainMenuController.cs` loads the first room from the menu.
+- `Game/RoomStateCoordinator.cs` sets the first Week 2 room objective.
 
 ## Scene Setup
 
 - `MainMenu.unity` is the entry scene.
+- `Chapter01_Room01.unity` is the Week 2 playable room loop.
 - `FirstRoom.unity` is the first gameplay room structure.
 - `PocScene.unity` remains available as the earlier proof-of-concept scene.
-- Build settings list `MainMenu`, `FirstRoom`, then `PocScene`.
+- Build settings list `MainMenu` and `Chapter01_Room01` for the Week 2 flow.
 
 ## WebGL Readiness
 
@@ -42,7 +46,7 @@ Assets/
 2. Confirm the active build target is WebGL.
 3. Open `Assets/Scenes/MainMenu.unity`.
 4. Wire a UI button to `MainMenuController.StartGame`.
-5. Open `Assets/Scenes/FirstRoom.unity`.
+5. Open `Assets/Scenes/Chapter01_Room01.unity`.
 6. Add a player object with `Rigidbody2D`, collider, `PlayerMovement`, and `InteractionController`.
 7. Add an interactable object with a trigger collider and `InteractableObject`.
 8. Add a TextMeshPro status label and connect it to `StatusDisplay`.
