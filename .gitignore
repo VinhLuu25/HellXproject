@@ -6,6 +6,8 @@
 [Bb]uilds/
 [Ll]ogs/
 [Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
 
 # Unity crash reports
 sysinfo.txt
@@ -29,7 +31,12 @@ Thumbs.db
 node_modules/
 .env
 .env.local
+.npm/
+.vite/
 
 # Build artifacts
 dist/
 coverage/
+*.apk
+*.aab
+*.unitypackage
