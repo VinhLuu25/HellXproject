@@ -2,23 +2,21 @@
 
 ## Demo Goal
 
-Show that Hell X is becoming a playable online horror slice with a clear path from Unity gameplay to backend-backed persistence. The demo should be short, concrete, and easy for an evaluator to follow.
+Show the Week 1 foundation for Hell X: project structure, client skeleton, backend skeleton, save contract, mock backend flow, and the next path toward a playable first-room demo.
 
 ## Demo Flow
 
 1. Start at the project README and point to the Week 1 foundation docs.
-2. Open the Unity WebGL build or local Unity play mode.
-3. Show the player in the first room.
-4. Move the player in multiple directions.
-5. Interact with a visible object.
-6. Show the UI response from the interaction.
-7. Trigger the first backend health or save-style request when available.
-8. Show the client success or failure state.
-9. Close with the current status and the next planned step toward save/resume.
+2. Show the client skeleton structure under `client/`.
+3. Show the server skeleton and mock route tests under `server/`.
+4. Show the save model and API contract docs.
+5. Run or reference the server check commands from setup docs if doing a live technical pass.
+6. Show the planned Unity mock flow from `client/README.md`.
+7. Close with the Week 1 review and Week 2 plan.
 
 ## Local Mock API Beat
 
-For the Week 1 technical demo, run the backend locally and trigger the Unity-side backend check from the first room. The evaluator should see either `Backend ready: first-room / intro` or a clear failure state if the backend is stopped.
+For the Week 1 technical demo, run the backend locally and trigger the Unity-side backend check from the first room after scene wiring is verified. The evaluator should see either `Backend ready: first-room / intro` or a clear failure state if the backend is stopped.
 
 ## What Evaluator Should Notice
 
@@ -27,4 +25,5 @@ For the Week 1 technical demo, run the backend locally and trigger the Unity-sid
 - The Unity client is the player-facing layer.
 - The backend is the boundary for persistent player state.
 - The save/resume path is planned before it grows.
-- Evidence is concrete: movement, interaction, UI feedback, backend response, and documented next steps.
+- Current evidence is strongest on repository structure, server tests, contract docs, and mock integration scripts.
+- Unity scene wiring and WebGL build verification still need a manual editor pass.

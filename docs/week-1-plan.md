@@ -71,3 +71,8 @@ Deliverables:
 - List open risks, decisions, and follow-up tasks.
 - Review evidence captured during the week.
 - Propose Week 2 priorities based on what is working.
+
+Outputs:
+
+- `docs/week-1-review.md`
+- `docs/week-2-plan.md`

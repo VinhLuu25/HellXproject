@@ -88,6 +88,7 @@ Client setup starts in `client/README.md`. Unity `6000.3.11f1` or a compatible e
 - Day 4 save/API contract and mock endpoints are in place.
 - Day 5 client-to-backend mock connection scripts are in place.
 - Day 6 setup docs, manual checks, and server CI draft are in place.
+- Day 7 Week 1 review and Week 2 plan are in place locally.
 - Production login, production persistence, dashboard work, deployment, and WebGL build output are not part of Week 1 foundation.
 
 ## Supporting Docs
@@ -99,5 +100,7 @@ Client setup starts in `client/README.md`. Unity `6000.3.11f1` or a compatible e
 - [Setup notes](docs/setup.md)
 - [Manual test checklist](docs/manual-test-checklist.md)
 - [Demo script draft](docs/demo-script-draft.md)
+- [Week 1 review](docs/week-1-review.md)
+- [Week 2 plan](docs/week-2-plan.md)
 - [Testing plan](docs/testing-plan.md)
 - [Project log](docs/project-log.md)
