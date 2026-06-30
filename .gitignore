@@ -5,6 +5,7 @@
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
+*.log
 [Uu]ser[Ss]ettings/
 [Mm]emoryCaptures/
 [Rr]ecordings/
@@ -31,6 +32,7 @@ Thumbs.db
 node_modules/
 .env
 .env.local
+.cache/
 .npm/
 .vite/
 
