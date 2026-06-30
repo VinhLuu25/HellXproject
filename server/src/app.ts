@@ -1,6 +1,8 @@
 import Fastify from "fastify";
 import cors from "@fastify/cors";
 import { healthRoutes } from "./routes/health.js";
+import { saveRoutes } from "./routes/save.js";
+import { sessionRoutes } from "./routes/session.js";
 
 export async function buildApp() {
   const app = Fastify({
@@ -12,6 +14,8 @@ export async function buildApp() {
   });
 
   await app.register(healthRoutes);
+  await app.register(sessionRoutes);
+  await app.register(saveRoutes);
 
   return app;
 }

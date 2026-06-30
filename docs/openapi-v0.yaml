@@ -1,0 +1,194 @@
+openapi: 3.1.0
+info:
+  title: Hell X API V0
+  version: 0.0.1
+servers:
+  - url: http://localhost:3000
+paths:
+  /health:
+    get:
+      summary: Health check
+      responses:
+        "200":
+          description: Backend is reachable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthResponse"
+  /session/test:
+    post:
+      summary: Create or return a test session
+      responses:
+        "200":
+          description: Test session
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestSession"
+  /save/current:
+    get:
+      summary: Load current save
+      responses:
+        "200":
+          description: Current save state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SaveState"
+    put:
+      summary: Write current save
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SaveStateInput"
+      responses:
+        "200":
+          description: Accepted save state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SaveState"
+        "400":
+          description: Invalid save state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+    delete:
+      summary: Reset test save
+      responses:
+        "200":
+          description: Save reset
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResetSaveResponse"
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      required:
+        - status
+        - service
+        - timestamp
+      properties:
+        status:
+          type: string
+          const: ok
+        service:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    TestSession:
+      type: object
+      required:
+        - sessionId
+        - playerId
+        - mode
+      properties:
+        sessionId:
+          type: string
+        playerId:
+          type: string
+        mode:
+          type: string
+          const: test
+    Position:
+      type: object
+      required:
+        - x
+        - y
+      properties:
+        x:
+          type: number
+        y:
+          type: number
+    SaveStateInput:
+      type: object
+      required:
+        - currentChapter
+        - currentRoom
+        - checkpointId
+        - position
+        - inventoryItems
+        - collectedClues
+        - journalEntries
+        - puzzleFlags
+        - settingsSnapshot
+        - deathCount
+        - retryCount
+      properties:
+        currentChapter:
+          type: string
+        currentRoom:
+          type: string
+        checkpointId:
+          type: string
+        position:
+          $ref: "#/components/schemas/Position"
+        inventoryItems:
+          type: array
+          items:
+            type: string
+        collectedClues:
+          type: array
+          items:
+            type: string
+        journalEntries:
+          type: array
+          items:
+            type: string
+        puzzleFlags:
+          type: object
+          additionalProperties:
+            type: boolean
+        settingsSnapshot:
+          type: object
+          additionalProperties:
+            oneOf:
+              - type: string
+              - type: number
+              - type: boolean
+        deathCount:
+          type: integer
+          minimum: 0
+        retryCount:
+          type: integer
+          minimum: 0
+    SaveState:
+      allOf:
+        - $ref: "#/components/schemas/SaveStateInput"
+        - type: object
+          required:
+            - playerId
+            - sessionId
+            - updatedAt
+          properties:
+            playerId:
+              type: string
+            sessionId:
+              type: string
+            updatedAt:
+              type: string
+              format: date-time
+    ErrorResponse:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string
+    ResetSaveResponse:
+      type: object
+      required:
+        - status
+        - save
+      properties:
+        status:
+          type: string
+          const: reset
+        save:
+          $ref: "#/components/schemas/SaveState"

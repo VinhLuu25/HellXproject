@@ -1,16 +1,14 @@
-# Unity generated files
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
+*.log
 [Uu]ser[Ss]ettings/
-
-# Unity crash reports
+[Mm]emoryCaptures/
+[Rr]ecordings/
 sysinfo.txt
-
-# IDE files
 .vs/
 .idea/
 .vscode/
@@ -20,16 +18,16 @@ sysinfo.txt
 *.pidb
 *.booproj
 *.svd
-
-# macOS / Windows
 .DS_Store
 Thumbs.db
-
-# Node/backend later
 node_modules/
 .env
 .env.local
-
-# Build artifacts
+.cache/
+.npm/
+.vite/
 dist/
 coverage/
+*.apk
+*.aab
+*.unitypackage
