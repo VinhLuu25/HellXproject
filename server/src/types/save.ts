@@ -20,6 +20,8 @@ export type SaveState = {
   updatedAt: string;
 };
 
+export type SaveStateInput = Omit<SaveState, "playerId" | "sessionId" | "updatedAt">;
+
 export type TestSession = {
   sessionId: string;
   playerId: string;

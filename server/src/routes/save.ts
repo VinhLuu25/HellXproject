@@ -1,32 +1,12 @@
 import { FastifyInstance } from "fastify";
 import { saveStateSchema } from "../schemas/save.js";
-import { SaveState } from "../types/save.js";
-
-const defaultSave: SaveState = {
-  playerId: "test-player-001",
-  sessionId: "test-session-001",
-  currentChapter: "chapter-01",
-  currentRoom: "first-room",
-  checkpointId: "intro",
-  position: {
-    x: 0,
-    y: 0
-  },
-  inventoryItems: [],
-  collectedClues: [],
-  journalEntries: [],
-  puzzleFlags: {},
-  settingsSnapshot: {},
-  deathCount: 0,
-  retryCount: 0,
-  updatedAt: "2026-01-01T00:00:00.000Z"
-};
-
-let currentSave = defaultSave;
+import { InMemorySaveStore } from "../services/saveStore.js";
 
 export async function saveRoutes(app: FastifyInstance) {
+  const saveStore = new InMemorySaveStore();
+
   app.get("/save/current", async () => {
-    return currentSave;
+    return saveStore.getCurrent();
   });
 
   app.put("/save/current", async (request, reply) => {
@@ -38,18 +18,11 @@ export async function saveRoutes(app: FastifyInstance) {
       });
     }
 
-    currentSave = {
-      playerId: defaultSave.playerId,
-      sessionId: defaultSave.sessionId,
-      ...parsed.data,
-      updatedAt: defaultSave.updatedAt
-    };
-
-    return currentSave;
+    return saveStore.write(parsed.data);
   });
 
   app.delete("/save/current", async () => {
-    currentSave = defaultSave;
+    const currentSave = saveStore.reset();
     return {
       status: "reset",
       save: currentSave

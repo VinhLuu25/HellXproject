@@ -91,6 +91,23 @@ Expected behavior:
 - Write current save accepts the contract payload.
 - Reset returns the mock save to `intro`.
 
+## Week 2 Backend Save Persistence Check
+
+```bash
+cd server
+npm install
+npm run build
+npm test
+npx prisma validate
+```
+
+Expected behavior:
+
+- Build completes.
+- Save route tests pass.
+- Prisma validates the schema.
+- Restarting the backend resets the current save because persistence is still in-memory.
+
 ## Unity Availability Note
 
 Unity must be opened locally to verify scene wiring, UI button bindings, and WebGL build settings. A command-line server test does not prove Unity scenes are wired.

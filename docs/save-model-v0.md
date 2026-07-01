@@ -51,3 +51,9 @@ Fields:
 ## Day 4 Boundary
 
 Day 4 defines the model and provides mock route behavior only. Real account security, database writes, migrations, and Unity integration come later.
+
+## Week 2 Persistence Status
+
+The backend route can accept, hold, load, and reset a save state while the process is running.
+
+Current persistence is in-memory only. PostgreSQL models exist in `server/prisma/schema.prisma`, but no migration was run and the save route does not write to the database yet.
