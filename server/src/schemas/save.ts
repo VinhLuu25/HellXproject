@@ -11,7 +11,7 @@ export const saveStateSchema = z.object({
   inventoryItems: z.array(z.string()),
   collectedClues: z.array(z.string()),
   journalEntries: z.array(z.string()),
-  puzzleFlags: z.record(z.string(), z.boolean()),
+  puzzleFlags: z.array(z.string()),
   settingsSnapshot: z.record(z.string(), z.union([z.string(), z.number(), z.boolean()])),
   deathCount: z.number().int().min(0),
   retryCount: z.number().int().min(0)

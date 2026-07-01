@@ -6,7 +6,10 @@ public class BackendStatusController : MonoBehaviour
     [SerializeField] private BackendClient backendClient;
     [SerializeField] private StatusDisplay statusDisplay;
     [SerializeField] private LocalSaveStore saveStore;
+    [SerializeField] private SavePayloadBuilder savePayloadBuilder;
+    [SerializeField] private Transform playerTransform;
     [SerializeField] private bool connectOnStart = false;
+    [SerializeField] private string saveCheckpointId = "manual-save";
 
     private void Awake()
     {
@@ -23,6 +26,17 @@ public class BackendStatusController : MonoBehaviour
         if (saveStore == null)
         {
             saveStore = FindFirstObjectByType<LocalSaveStore>();
+        }
+
+        if (savePayloadBuilder == null)
+        {
+            savePayloadBuilder = FindFirstObjectByType<SavePayloadBuilder>();
+        }
+
+        if (playerTransform == null)
+        {
+            PlayerMovement player = FindFirstObjectByType<PlayerMovement>();
+            playerTransform = player != null ? player.transform : null;
         }
     }
 
@@ -61,6 +75,22 @@ public class BackendStatusController : MonoBehaviour
             yield break;
         }
 
+        Vector2 playerPosition = playerTransform != null ? playerTransform.position : Vector2.zero;
+        SavePayload payload = savePayloadBuilder != null
+            ? savePayloadBuilder.Build(saveCheckpointId, playerPosition)
+            : SavePayloadBuilder.BuildFallback(saveCheckpointId, playerPosition);
+
+        BackendResult<BackendSaveResponse> write = null;
+        yield return backendClient.WriteCurrentSave(payload, result => write = result);
+
+        if (write == null || !write.IsSuccess)
+        {
+            statusDisplay?.SetStatus($"Save write failed: {write?.Error ?? "no response"}");
+            yield break;
+        }
+
+        saveStore?.SaveCheckpoint(payload);
+
         BackendResult<BackendSaveResponse> save = null;
         yield return backendClient.LoadCurrentSave(result => save = result);
 
@@ -71,6 +101,6 @@ public class BackendStatusController : MonoBehaviour
         }
 
         saveStore?.SaveBackendSnapshot(save.RawJson);
-        statusDisplay?.SetStatus($"Backend ready: {save.Value.currentRoom} / {save.Value.checkpointId}");
+        statusDisplay?.SetStatus($"Save synced: {save.Value.currentRoom} / {save.Value.checkpointId}");
     }
 }

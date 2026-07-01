@@ -1,6 +1,6 @@
 # API Contract V0
 
-API contract V0 defines the minimum backend shape for the first save/resume demo path. The contract is intentionally small and uses stable mock data during Day 4.
+API contract V0 defines the minimum backend shape for the first save/resume demo path. The contract is intentionally small and uses stable test-session data for the local slice.
 
 ## Health
 
@@ -56,7 +56,7 @@ Success response:
   "inventoryItems": [],
   "collectedClues": [],
   "journalEntries": [],
-  "puzzleFlags": {},
+  "puzzleFlags": [],
   "settingsSnapshot": {},
   "deathCount": 0,
   "retryCount": 0,
@@ -84,9 +84,7 @@ Request body:
   "inventoryItems": ["rusted-key"],
   "collectedClues": ["wall-note"],
   "journalEntries": ["entry-001"],
-  "puzzleFlags": {
-    "fuseBoxOpened": true
-  },
+  "puzzleFlags": ["fuse-box-opened"],
   "settingsSnapshot": {
     "volume": 0.8
   },
@@ -127,6 +125,12 @@ Success response:
 ## Day 4 Boundary
 
 These endpoints are mock contract endpoints. They do not provide production account security, production cloud save, or database writes.
+
+## Week 2 Persistence Status
+
+The save route now writes and reads from an in-memory store owned by the running backend process. Restarting the process resets the save to `intro`.
+
+The Prisma schema is aligned to the save model through `SaveSlot`, but database-backed persistence and migrations are not active in this pass.
 
 ## Day 5 Client Spike
 

@@ -32,6 +32,10 @@ public class BackendSaveResponse
     public string currentRoom;
     public string checkpointId;
     public BackendPositionResponse position;
+    public string[] inventoryItems;
+    public string[] collectedClues;
+    public string[] journalEntries;
+    public string[] puzzleFlags;
     public string updatedAt;
 }
 

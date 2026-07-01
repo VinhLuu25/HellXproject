@@ -23,6 +23,11 @@ public class BackendClient : MonoBehaviour
         yield return SendGet("/save/current", onComplete);
     }
 
+    public IEnumerator WriteCurrentSave(SavePayload payload, Action<BackendResult<BackendSaveResponse>> onComplete)
+    {
+        yield return SendPut("/save/current", JsonUtility.ToJson(payload), onComplete);
+    }
+
     private IEnumerator SendGet<T>(string path, Action<BackendResult<T>> onComplete)
     {
         using UnityWebRequest request = UnityWebRequest.Get(BuildUrl(path));
@@ -36,6 +41,20 @@ public class BackendClient : MonoBehaviour
     private IEnumerator SendPost<T>(string path, string body, Action<BackendResult<T>> onComplete)
     {
         using UnityWebRequest request = new UnityWebRequest(BuildUrl(path), "POST");
+        byte[] payload = System.Text.Encoding.UTF8.GetBytes(body);
+        request.uploadHandler = new UploadHandlerRaw(payload);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+        request.timeout = timeoutSeconds;
+
+        yield return request.SendWebRequest();
+
+        CompleteRequest(request, onComplete);
+    }
+
+    private IEnumerator SendPut<T>(string path, string body, Action<BackendResult<T>> onComplete)
+    {
+        using UnityWebRequest request = new UnityWebRequest(BuildUrl(path), "PUT");
         byte[] payload = System.Text.Encoding.UTF8.GetBytes(body);
         request.uploadHandler = new UploadHandlerRaw(payload);
         request.downloadHandler = new DownloadHandlerBuffer();

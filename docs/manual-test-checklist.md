@@ -4,8 +4,49 @@
 
 - Open `client/` in Unity when the editor is available.
 - Confirm `Assets/Scenes/MainMenu.unity`, `Assets/Scenes/FirstRoom.unity`, and `Assets/Scenes/PocScene.unity` exist.
+- Confirm `Assets/Scenes/Chapter01_Room01.unity` exists after the Week 2 scene pass.
 - Confirm scripts exist under `Assets/Scripts/Player`, `Assets/Scripts/Interaction`, `Assets/Scripts/Save`, `Assets/Scripts/UI`, and `Assets/Scripts/Network`.
 - Confirm scene wiring manually before claiming playable client behavior.
+
+## Week 2 Room Loop Check
+
+- Open `Assets/Scenes/MainMenu.unity`.
+- Confirm the title, start test session placeholder, status placeholder, and start button are visible.
+- Press play and use the start button to load `Assets/Scenes/Chapter01_Room01.unity`.
+- Move the player placeholder with WASD or arrow keys.
+- Approach the clue, puzzle, or checkpoint placeholder and press `E`.
+- Confirm the status text changes when an interaction is detected.
+
+## Week 2 Clue Pickup Check
+
+- Open `Assets/Scenes/Chapter01_Room01.unity`.
+- Move the player near `ClueObject`.
+- Press `E`.
+- Confirm the clue status says the torn chapel note was found.
+- Confirm the clue sprite is hidden after pickup.
+- Confirm the room has `InventoryState` and `JournalState` on `RoomRoot`.
+
+## Week 2 Puzzle Check
+
+- Open `Assets/Scenes/Chapter01_Room01.unity`.
+- Move the player near `PuzzleObject` before collecting the clue and press `E`.
+- Confirm the status says the lock needs the torn chapel note.
+- Collect `ClueObject`.
+- Return to `PuzzleObject` and press `E`.
+- Confirm the status says the chapel lock opens.
+- Press `E` again and confirm the status says the chapel lock is already open.
+- Confirm the room has `PuzzleState` on `RoomRoot`.
+
+## Week 2 Checkpoint Check
+
+- Open `Assets/Scenes/Chapter01_Room01.unity`.
+- Confirm `RoomRoot` has `SavePayloadBuilder` and `LocalSaveStore`.
+- Confirm `CheckpointObject` has `CheckpointTrigger` if the scene builder completed.
+- Collect `ClueObject`.
+- Solve `PuzzleObject`.
+- Move the player into `CheckpointObject`.
+- Confirm the status says the checkpoint was saved.
+- Stop play mode and inspect PlayerPrefs through a local debug pass before claiming resume behavior.
 
 ## Backend Health Check
 
@@ -50,6 +91,33 @@ Expected behavior:
 - Write current save accepts the contract payload.
 - Reset returns the mock save to `intro`.
 
+## Week 2 Backend Save Persistence Check
+
+```bash
+cd server
+npm install
+npm run build
+npm test
+npx prisma validate
+```
+
+Expected behavior:
+
+- Build completes.
+- Save route tests pass.
+- Prisma validates the schema.
+- Restarting the backend resets the current save because persistence is still in-memory.
+
+## Week 2 Client Save And Load Check
+
+- Start the backend with `npm run dev` from `server/`.
+- Open `Assets/Scenes/Chapter01_Room01.unity`.
+- Confirm `RoomRoot` has `BackendClient`, `BackendStatusController`, `SavePayloadBuilder`, and `LocalSaveStore` if the scene builder completed.
+- Trigger `BackendStatusController.CheckBackend` from the inspector or a temporary local UI binding.
+- Confirm the status reaches `Save synced: first-room / manual-save`.
+- Stop the backend and trigger the same flow again.
+- Confirm the status shows a backend unavailable, session failed, save write failed, or save load failed message instead of crashing.
+
 ## Unity Availability Note
 
 Unity must be opened locally to verify scene wiring, UI button bindings, and WebGL build settings. A command-line server test does not prove Unity scenes are wired.
@@ -75,3 +143,4 @@ Week 1 only defines and mocks this path.
 - Production login.
 - Dashboard checks.
 - Fresh clone simulation.
+- Manual Unity play mode verification for the complete Week 2 path.

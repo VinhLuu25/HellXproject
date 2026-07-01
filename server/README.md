@@ -68,3 +68,9 @@ Production login, cloud save endpoints, database migrations, client integration,
 ## Week 1 State
 
 The server now includes mock session and save endpoints for contract testing. These endpoints do not write to PostgreSQL.
+
+## Week 2 Save Path
+
+`GET /save/current`, `PUT /save/current`, and `DELETE /save/current` use an in-memory save store for the local test session.
+
+The Prisma schema contains `Player`, `GameSession`, and `SaveSlot` models aligned to the save contract, but no migration has been run in this pass and the route does not write to PostgreSQL yet.
