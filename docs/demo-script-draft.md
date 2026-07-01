@@ -12,8 +12,9 @@ Show the Week 2 playable slice path for Hell X: main menu, first room, movement,
 4. Interact with `PuzzleObject` before collecting the clue and show the blocked status.
 5. Collect `ClueObject` and show the clue status.
 6. Return to `PuzzleObject` and show the solved status.
-7. Show the save model and API contract docs.
-8. Close with the remaining save and resume work.
+7. Move into `CheckpointObject` and show the saved checkpoint status if scene wiring is verified.
+8. Show the save model and API contract docs.
+9. Close with the remaining save and resume work.
 
 ## Local Mock API Beat
 

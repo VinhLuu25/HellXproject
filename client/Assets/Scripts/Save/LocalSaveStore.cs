@@ -8,19 +8,28 @@ public class LocalSaveStore : MonoBehaviour
 
     public void SaveCheckpoint(string roomId, Vector2 playerPosition)
     {
-        LocalSaveData data = new LocalSaveData
-        {
-            roomId = roomId,
-            playerX = playerPosition.x,
-            playerY = playerPosition.y,
-            savedAt = DateTime.UtcNow.ToString("O")
-        };
+        SavePayload payload = SavePayloadBuilder.BuildFallback("interaction", playerPosition);
+        payload.currentRoom = roomId;
+        SaveCheckpoint(payload);
+    }
 
-        PlayerPrefs.SetString(SaveKey, JsonUtility.ToJson(data));
+    public void SaveCheckpoint(SavePayload payload)
+    {
+        if (payload == null)
+        {
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(payload.savedAt))
+        {
+            payload.savedAt = DateTime.UtcNow.ToString("O");
+        }
+
+        PlayerPrefs.SetString(SaveKey, JsonUtility.ToJson(payload));
         PlayerPrefs.Save();
     }
 
-    public bool TryLoad(out LocalSaveData data)
+    public bool TryLoad(out SavePayload data)
     {
         if (!PlayerPrefs.HasKey(SaveKey))
         {
@@ -28,7 +37,7 @@ public class LocalSaveStore : MonoBehaviour
             return false;
         }
 
-        data = JsonUtility.FromJson<LocalSaveData>(PlayerPrefs.GetString(SaveKey));
+        data = JsonUtility.FromJson<SavePayload>(PlayerPrefs.GetString(SaveKey));
         return data != null;
     }
 
@@ -43,13 +52,4 @@ public class LocalSaveStore : MonoBehaviour
         rawJson = PlayerPrefs.GetString(BackendSnapshotKey, string.Empty);
         return !string.IsNullOrEmpty(rawJson);
     }
-}
-
-[Serializable]
-public class LocalSaveData
-{
-    public string roomId;
-    public float playerX;
-    public float playerY;
-    public string savedAt;
 }

@@ -37,6 +37,17 @@
 - Press `E` again and confirm the status says the chapel lock is already open.
 - Confirm the room has `PuzzleState` on `RoomRoot`.
 
+## Week 2 Checkpoint Check
+
+- Open `Assets/Scenes/Chapter01_Room01.unity`.
+- Confirm `RoomRoot` has `SavePayloadBuilder` and `LocalSaveStore`.
+- Confirm `CheckpointObject` has `CheckpointTrigger` if the scene builder completed.
+- Collect `ClueObject`.
+- Solve `PuzzleObject`.
+- Move the player into `CheckpointObject`.
+- Confirm the status says the checkpoint was saved.
+- Stop play mode and inspect PlayerPrefs through a local debug pass before claiming resume behavior.
+
 ## Backend Health Check
 
 ```bash

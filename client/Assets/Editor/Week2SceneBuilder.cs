@@ -62,6 +62,7 @@ namespace HellX.EditorTools
             EnsureComponent<InventoryState>(root);
             EnsureComponent<JournalState>(root);
             EnsureComponent<PuzzleState>(root);
+            EnsureComponent<SavePayloadBuilder>(root);
             EnsureSprite("FloorPlaceholder", root.transform, new Vector3(0f, 0f, 0f), new Vector2(12f, 7f), new Color(0.11f, 0.11f, 0.12f), false);
             EnsureBoundary("BoundaryTop", root.transform, new Vector3(0f, 3.6f, 0f), new Vector2(12f, 0.2f));
             EnsureBoundary("BoundaryBottom", root.transform, new Vector3(0f, -3.6f, 0f), new Vector2(12f, 0.2f));
@@ -107,8 +108,12 @@ namespace HellX.EditorTools
 
             EnsureSprite("LockedExitPlaceholder", root.transform, new Vector3(4.8f, 0f, 0f), new Vector2(0.7f, 1.8f), new Color(0.4f, 0.05f, 0.07f), true);
             GameObject checkpoint = EnsureSprite("CheckpointObject", root.transform, new Vector3(3.2f, -2f, 0f), new Vector2(0.8f, 0.45f), new Color(0.1f, 0.7f, 0.5f), true);
-            InteractableObject checkpointInteraction = EnsureComponent<InteractableObject>(checkpoint);
-            SetPrivateString(checkpointInteraction, "interactionMessage", "Checkpoint reached.");
+            EnsureComponent<CheckpointTrigger>(checkpoint);
+            InteractableObject oldCheckpointInteraction = checkpoint.GetComponent<InteractableObject>();
+            if (oldCheckpointInteraction != null)
+            {
+                Object.DestroyImmediate(oldCheckpointInteraction);
+            }
             EnsureComponent<BoxCollider2D>(checkpoint).isTrigger = true;
 
             Canvas canvas = EnsureCanvas("RoomCanvas");

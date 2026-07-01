@@ -12,10 +12,14 @@ Assets/
     FirstRoom.unity
     PocScene.unity
   Scripts/
+    Checkpoint/
     Game/
+    Interaction/
+    Inventory/
+    Journal/
     Network/
     Player/
-    Interaction/
+    Puzzle/
     Save/
     UI/
 ```
@@ -25,7 +29,13 @@ Assets/
 - `Player/PlayerMovement.cs` handles top-down Rigidbody2D movement.
 - `Interaction/InteractionController.cs` detects nearby objects and records a local checkpoint.
 - `Interaction/InteractableObject.cs` provides the first inspectable object behavior.
+- `Inventory/InventoryState.cs` tracks collected item identifiers.
+- `Journal/JournalState.cs` tracks unlocked journal entry identifiers.
+- `Puzzle/PuzzleState.cs` tracks solved puzzle identifiers.
+- `Puzzle/PuzzleInteractable.cs` checks the clue item before solving the chapel lock.
+- `Checkpoint/CheckpointTrigger.cs` records the local checkpoint payload when the player enters the checkpoint.
 - `Save/LocalSaveStore.cs` stores a local checkpoint through PlayerPrefs.
+- `Save/SavePayloadBuilder.cs` builds the first room save payload for local checkpoint flow.
 - `Network/BackendClient.cs` calls local backend mock endpoints.
 - `UI/StatusDisplay.cs` updates a TextMeshPro status label.
 - `UI/BackendStatusController.cs` runs the local backend mock flow and displays success or failure.
