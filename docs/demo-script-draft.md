@@ -2,17 +2,18 @@
 
 ## Demo Goal
 
-Show the Week 1 foundation for Hell X: project structure, client skeleton, backend skeleton, save contract, mock backend flow, and the next path toward a playable first-room demo.
+Show the Week 2 playable slice path for Hell X: main menu, first room, movement, clue pickup, simple puzzle state, backend contract, and the next path toward save and resume.
 
 ## Demo Flow
 
-1. Start at the project README and point to the Week 1 foundation docs.
-2. Show the client skeleton structure under `client/`.
-3. Show the server skeleton and mock route tests under `server/`.
-4. Show the save model and API contract docs.
-5. Run or reference the server check commands from setup docs if doing a live technical pass.
-6. Show the planned Unity mock flow from `client/README.md`.
-7. Close with the Week 1 review and Week 2 plan.
+1. Start at the project README and point to the Week 2 plan.
+2. Open `Assets/Scenes/MainMenu.unity` and start the test session.
+3. Move the player through `Assets/Scenes/Chapter01_Room01.unity`.
+4. Interact with `PuzzleObject` before collecting the clue and show the blocked status.
+5. Collect `ClueObject` and show the clue status.
+6. Return to `PuzzleObject` and show the solved status.
+7. Show the save model and API contract docs.
+8. Close with the remaining save and resume work.
 
 ## Local Mock API Beat
 

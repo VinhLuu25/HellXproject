@@ -61,6 +61,7 @@ namespace HellX.EditorTools
             EnsureComponent<RoomStateCoordinator>(root);
             EnsureComponent<InventoryState>(root);
             EnsureComponent<JournalState>(root);
+            EnsureComponent<PuzzleState>(root);
             EnsureSprite("FloorPlaceholder", root.transform, new Vector3(0f, 0f, 0f), new Vector2(12f, 7f), new Color(0.11f, 0.11f, 0.12f), false);
             EnsureBoundary("BoundaryTop", root.transform, new Vector3(0f, 3.6f, 0f), new Vector2(12f, 0.2f));
             EnsureBoundary("BoundaryBottom", root.transform, new Vector3(0f, -3.6f, 0f), new Vector2(12f, 0.2f));
@@ -96,8 +97,12 @@ namespace HellX.EditorTools
             clueCollider.isTrigger = true;
 
             GameObject puzzle = EnsureSprite("PuzzleObject", root.transform, new Vector3(2.1f, 1.1f, 0f), new Vector2(0.75f, 0.75f), new Color(0.32f, 0.45f, 0.9f), true);
-            InteractableObject puzzleInteraction = EnsureComponent<InteractableObject>(puzzle);
-            SetPrivateString(puzzleInteraction, "interactionMessage", "The lock needs a clue.");
+            EnsureComponent<PuzzleInteractable>(puzzle);
+            InteractableObject oldPuzzleInteraction = puzzle.GetComponent<InteractableObject>();
+            if (oldPuzzleInteraction != null)
+            {
+                Object.DestroyImmediate(oldPuzzleInteraction);
+            }
             EnsureComponent<BoxCollider2D>(puzzle).isTrigger = true;
 
             EnsureSprite("LockedExitPlaceholder", root.transform, new Vector3(4.8f, 0f, 0f), new Vector2(0.7f, 1.8f), new Color(0.4f, 0.05f, 0.07f), true);

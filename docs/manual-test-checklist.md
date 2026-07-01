@@ -26,6 +26,17 @@
 - Confirm the clue sprite is hidden after pickup.
 - Confirm the room has `InventoryState` and `JournalState` on `RoomRoot`.
 
+## Week 2 Puzzle Check
+
+- Open `Assets/Scenes/Chapter01_Room01.unity`.
+- Move the player near `PuzzleObject` before collecting the clue and press `E`.
+- Confirm the status says the lock needs the torn chapel note.
+- Collect `ClueObject`.
+- Return to `PuzzleObject` and press `E`.
+- Confirm the status says the chapel lock opens.
+- Press `E` again and confirm the status says the chapel lock is already open.
+- Confirm the room has `PuzzleState` on `RoomRoot`.
+
 ## Backend Health Check
 
 ```bash
