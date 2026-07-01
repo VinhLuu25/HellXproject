@@ -1937,6 +1937,8 @@ GameObject:
   - component: {fileID: 1708594711}
   - component: {fileID: 1708594710}
   - component: {fileID: 1708594709}
+  - component: {fileID: 1708594717}
+  - component: {fileID: 1708594716}
   m_Layer: 0
   m_Name: RoomRoot
   m_TagString: Untagged
@@ -2048,6 +2050,39 @@ Transform:
   - {fileID: 582092511}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1708594716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708594708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbf54d7d4de4ec398207e259e38afd6, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::BackendStatusController
+  backendClient: {fileID: 1708594717}
+  statusDisplay: {fileID: 80788048}
+  saveStore: {fileID: 1708594709}
+  savePayloadBuilder: {fileID: 1708594710}
+  playerTransform: {fileID: 530863325}
+  connectOnStart: 0
+  saveCheckpointId: manual-save
+--- !u!114 &1708594717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708594708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ec97e4bd614ce89bd4e255f47c51b7, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::BackendClient
+  baseUrl: http://localhost:3000
+  timeoutSeconds: 5
 --- !u!1 &2081289173
 GameObject:
   m_ObjectHideFlags: 0

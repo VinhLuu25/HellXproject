@@ -38,7 +38,7 @@ Assets/
 - `Save/SavePayloadBuilder.cs` builds the first room save payload for local checkpoint flow.
 - `Network/BackendClient.cs` calls local backend mock endpoints.
 - `UI/StatusDisplay.cs` updates a TextMeshPro status label.
-- `UI/BackendStatusController.cs` runs the local backend mock flow and displays success or failure.
+- `UI/BackendStatusController.cs` starts a test session, writes a save payload, loads the current save, and displays success or failure.
 - `UI/MainMenuController.cs` loads the first room from the menu.
 - `Game/RoomStateCoordinator.cs` sets the first Week 2 room objective.
 

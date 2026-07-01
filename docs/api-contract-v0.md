@@ -56,7 +56,7 @@ Success response:
   "inventoryItems": [],
   "collectedClues": [],
   "journalEntries": [],
-  "puzzleFlags": {},
+  "puzzleFlags": [],
   "settingsSnapshot": {},
   "deathCount": 0,
   "retryCount": 0,
@@ -84,9 +84,7 @@ Request body:
   "inventoryItems": ["rusted-key"],
   "collectedClues": ["wall-note"],
   "journalEntries": ["entry-001"],
-  "puzzleFlags": {
-    "fuseBoxOpened": true
-  },
+  "puzzleFlags": ["fuse-box-opened"],
   "settingsSnapshot": {
     "volume": 0.8
   },

@@ -32,7 +32,7 @@ Fields:
 - `inventoryItems`: item identifiers held by the player.
 - `collectedClues`: clue identifiers already found.
 - `journalEntries`: journal entry identifiers unlocked for the player.
-- `puzzleFlags`: named puzzle booleans.
+- `puzzleFlags`: solved puzzle identifiers.
 - `settingsSnapshot`: lightweight player settings needed for resume.
 - `deathCount`: total deaths in the current save.
 - `retryCount`: retries since the current checkpoint.

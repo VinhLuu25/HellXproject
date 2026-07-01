@@ -60,9 +60,7 @@ test("PUT /save/current writes a mock save", async () => {
         inventoryItems: ["rusted-key"],
         collectedClues: ["wall-note"],
         journalEntries: ["entry-001"],
-        puzzleFlags: {
-          fuseBoxOpened: true
-        },
+        puzzleFlags: ["fuse-box-opened"],
         settingsSnapshot: {
           volume: 0.8
         },
@@ -76,7 +74,7 @@ test("PUT /save/current writes a mock save", async () => {
     assert.equal(response.statusCode, 200);
     assert.equal(body.checkpointId, "clue-found");
     assert.deepEqual(body.inventoryItems, ["rusted-key"]);
-    assert.equal(body.puzzleFlags.fuseBoxOpened, true);
+    assert.deepEqual(body.puzzleFlags, ["fuse-box-opened"]);
     assert.equal(body.playerId, "test-player-001");
     assert.equal(body.sessionId, "test-session-001");
     assert.match(body.updatedAt, /^\d{4}-\d{2}-\d{2}T/);

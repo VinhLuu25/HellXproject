@@ -17,7 +17,7 @@ export function createDefaultSave(): SaveState {
     inventoryItems: [],
     collectedClues: [],
     journalEntries: [],
-    puzzleFlags: {},
+    puzzleFlags: [],
     settingsSnapshot: {},
     deathCount: 0,
     retryCount: 0,

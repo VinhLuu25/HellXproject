@@ -13,7 +13,7 @@ export type SaveState = {
   inventoryItems: string[];
   collectedClues: string[];
   journalEntries: string[];
-  puzzleFlags: Record<string, boolean>;
+  puzzleFlags: string[];
   settingsSnapshot: Record<string, string | number | boolean>;
   deathCount: number;
   retryCount: number;

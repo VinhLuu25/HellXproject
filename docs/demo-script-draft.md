@@ -13,8 +13,10 @@ Show the Week 2 playable slice path for Hell X: main menu, first room, movement,
 5. Collect `ClueObject` and show the clue status.
 6. Return to `PuzzleObject` and show the solved status.
 7. Move into `CheckpointObject` and show the saved checkpoint status if scene wiring is verified.
-8. Show the save model and API contract docs.
-9. Close with the remaining save and resume work.
+8. With the backend running, trigger the save/load check and show `Save synced: first-room / manual-save` if scene wiring is verified.
+9. Stop the backend and show the recoverable failure status if time allows.
+10. Show the save model and API contract docs.
+11. Close with the remaining polish and persistence work.
 
 ## Local Mock API Beat
 

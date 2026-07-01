@@ -54,7 +54,7 @@ public class SavePayloadBuilder : MonoBehaviour
             inventoryItems = Array.Empty<string>(),
             journalEntries = Array.Empty<string>(),
             puzzleFlags = Array.Empty<string>(),
-            playerPosition = new SaveVector2
+            position = new SaveVector2
             {
                 x = playerPosition.x,
                 y = playerPosition.y
@@ -74,7 +74,7 @@ public class SavePayload
     public string[] inventoryItems;
     public string[] journalEntries;
     public string[] puzzleFlags;
-    public SaveVector2 playerPosition;
+    public SaveVector2 position;
     public string savedAt;
 }
 

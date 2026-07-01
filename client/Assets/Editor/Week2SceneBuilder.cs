@@ -128,10 +128,20 @@ namespace HellX.EditorTools
             statusSerialized.ApplyModifiedPropertiesWithoutUndo();
 
             LocalSaveStore store = EnsureComponent<LocalSaveStore>(root);
+            BackendClient backendClient = EnsureComponent<BackendClient>(root);
+            BackendStatusController backendStatus = EnsureComponent<BackendStatusController>(root);
             SerializedObject interactionSerialized = new SerializedObject(interaction);
             interactionSerialized.FindProperty("statusDisplay").objectReferenceValue = display;
             interactionSerialized.FindProperty("saveStore").objectReferenceValue = store;
             interactionSerialized.ApplyModifiedPropertiesWithoutUndo();
+
+            SerializedObject backendStatusSerialized = new SerializedObject(backendStatus);
+            backendStatusSerialized.FindProperty("backendClient").objectReferenceValue = backendClient;
+            backendStatusSerialized.FindProperty("statusDisplay").objectReferenceValue = display;
+            backendStatusSerialized.FindProperty("saveStore").objectReferenceValue = store;
+            backendStatusSerialized.FindProperty("savePayloadBuilder").objectReferenceValue = root.GetComponent<SavePayloadBuilder>();
+            backendStatusSerialized.FindProperty("playerTransform").objectReferenceValue = player.transform;
+            backendStatusSerialized.ApplyModifiedPropertiesWithoutUndo();
 
             EditorSceneManager.SaveScene(scene, RoomPath);
         }

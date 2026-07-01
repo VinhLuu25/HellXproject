@@ -108,6 +108,16 @@ Expected behavior:
 - Prisma validates the schema.
 - Restarting the backend resets the current save because persistence is still in-memory.
 
+## Week 2 Client Save And Load Check
+
+- Start the backend with `npm run dev` from `server/`.
+- Open `Assets/Scenes/Chapter01_Room01.unity`.
+- Confirm `RoomRoot` has `BackendClient`, `BackendStatusController`, `SavePayloadBuilder`, and `LocalSaveStore` if the scene builder completed.
+- Trigger `BackendStatusController.CheckBackend` from the inspector or a temporary local UI binding.
+- Confirm the status reaches `Save synced: first-room / manual-save`.
+- Stop the backend and trigger the same flow again.
+- Confirm the status shows a backend unavailable, session failed, save write failed, or save load failed message instead of crashing.
+
 ## Unity Availability Note
 
 Unity must be opened locally to verify scene wiring, UI button bindings, and WebGL build settings. A command-line server test does not prove Unity scenes are wired.
