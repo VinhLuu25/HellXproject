@@ -143,3 +143,4 @@ Week 1 only defines and mocks this path.
 - Production login.
 - Dashboard checks.
 - Fresh clone simulation.
+- Manual Unity play mode verification for the complete Week 2 path.

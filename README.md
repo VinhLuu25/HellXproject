@@ -61,9 +61,9 @@ HellXproject/
   dashboard/   # Planned QA/Ops dashboard
 ```
 
-## Week 1 Goal
+## Week 2 Goal
 
-Week 1 should turn the repository into a clear project foundation before adding new product work. The week starts with scope, process, architecture, and demo planning, then moves through the Unity skeleton, backend skeleton, save model/API contract, client-to-backend spike, integration cleanup, and weekly review.
+Week 2 turns the foundation into a first playable room slice: main menu, first room, player movement, clue pickup, inventory and journal state, simple puzzle state, checkpoint payload, backend save/load route, client save/load flow, and review docs.
 
 ## Local Setup
 
@@ -82,14 +82,11 @@ Client setup starts in `client/README.md`. Unity `6000.3.11f1` or a compatible e
 
 ## Current Status
 
-- Day 1 foundation docs are in place.
-- Day 2 client skeleton is in place.
-- Day 3 server skeleton is in place.
-- Day 4 save/API contract and mock endpoints are in place.
-- Day 5 client-to-backend mock connection scripts are in place.
-- Day 6 setup docs, manual checks, and server CI draft are in place.
-- Day 7 Week 1 review and Week 2 plan are in place locally.
-- Production login, production persistence, dashboard work, deployment, and WebGL build output are not part of Week 1 foundation.
+- Week 1 foundation is in place.
+- Week 2 playable room loop scripts and scene targets are in place.
+- Backend save write/load/reset is validated and backed by in-memory test-session state.
+- Unity scene builder completed for the Week 2 scene targets after the Day 10 retry failed.
+- Manual Unity play mode, WebGL build output, production login, production persistence, dashboard work, and deployment are not complete.
 
 ## Supporting Docs
 
@@ -102,5 +99,7 @@ Client setup starts in `client/README.md`. Unity `6000.3.11f1` or a compatible e
 - [Demo script draft](docs/demo-script-draft.md)
 - [Week 1 review](docs/week-1-review.md)
 - [Week 2 plan](docs/week-2-plan.md)
+- [Week 2 review](docs/week-2-review.md)
+- [Week 3 plan](docs/week-3-plan.md)
 - [Testing plan](docs/testing-plan.md)
 - [Project log](docs/project-log.md)

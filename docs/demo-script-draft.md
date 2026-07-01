@@ -2,7 +2,7 @@
 
 ## Demo Goal
 
-Show the Week 2 playable slice path for Hell X: main menu, first room, movement, clue pickup, simple puzzle state, backend contract, and the next path toward save and resume.
+Show the Week 2 playable slice path for Hell X: main menu, first room, movement, clue pickup, simple puzzle state, checkpoint payload, backend save/load contract, and the next path toward verified resume.
 
 ## Demo Flow
 
@@ -16,11 +16,11 @@ Show the Week 2 playable slice path for Hell X: main menu, first room, movement,
 8. With the backend running, trigger the save/load check and show `Save synced: first-room / manual-save` if scene wiring is verified.
 9. Stop the backend and show the recoverable failure status if time allows.
 10. Show the save model and API contract docs.
-11. Close with the remaining polish and persistence work.
+11. Close with `docs/week-2-review.md` and `docs/week-3-plan.md`.
 
 ## Local Mock API Beat
 
-For the Week 1 technical demo, run the backend locally and trigger the Unity-side backend check from the first room after scene wiring is verified. The evaluator should see either `Backend ready: first-room / intro` or a clear failure state if the backend is stopped.
+For the Week 2 technical demo, run the backend locally and trigger the Unity-side backend check from the first room after scene wiring is verified. The evaluator should see either `Save synced: first-room / manual-save` or a clear failure state if the backend is stopped.
 
 ## What Evaluator Should Notice
 
@@ -29,5 +29,5 @@ For the Week 1 technical demo, run the backend locally and trigger the Unity-sid
 - The Unity client is the player-facing layer.
 - The backend is the boundary for persistent player state.
 - The save/resume path is planned before it grows.
-- Current evidence is strongest on repository structure, server tests, contract docs, and mock integration scripts.
-- Unity scene wiring and WebGL build verification still need a manual editor pass.
+- Current evidence is strongest on repository structure, Unity scene builder output, server tests, contract docs, and client save/load scripts.
+- Unity play mode and WebGL build verification still need a manual editor pass.
